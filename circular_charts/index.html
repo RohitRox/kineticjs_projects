@@ -91,9 +91,10 @@
     function value_to_angle(value) {
       return (360 / 100) * parseFloat(value);
     }
-    var radius = 40 * data_array.length;
-    var startAngle = 0;
+    var radius = 40;
+    var startAngle = rand();
     var layer = new Kinetic.Layer();
+    var radian = 0.0174532925; // Math.PI/180
 
     for (var i = 0; i < data_array.length; i++) {
       drawer(i);
@@ -118,8 +119,8 @@
         fill: data_array[i].color,
         stroke: data_array[i].color,
         radius: radius,
-        startAngle: startAngle * 0.0174532925,
-        endAngle: endAngle * 0.0174532925,
+        startAngle: startAngle * radian,
+        endAngle: endAngle * radian,
         strokeWidth: 20
       });
 
@@ -137,7 +138,7 @@
         stroke: '#ddd',
         radius: radius,
         startAngle: 0,
-        endAngle: 360 * 0.0174532925,
+        endAngle: 360 * radian,
         strokeWidth: 20
       });
 
@@ -159,7 +160,7 @@
         })).play();
       });
 
-      radius -= 30;
+      radius += 30;
       stage.add(layer);
     }
   </script>
