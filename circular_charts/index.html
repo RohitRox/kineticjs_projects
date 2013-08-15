@@ -91,7 +91,7 @@
     function value_to_angle(value) {
       return (360 / 100) * parseFloat(value);
     }
-    var radius = 40;
+    var radius = 80;
     var startAngle = rand();
     var layer = new Kinetic.Layer();
     var radian = 0.0174532925; // Math.PI/180
@@ -121,7 +121,7 @@
         radius: radius,
         startAngle: startAngle * radian,
         endAngle: endAngle * radian,
-        strokeWidth: 20
+        strokeWidth: 15
       });
 
       startAngle = endAngle;
@@ -139,11 +139,24 @@
         radius: radius,
         startAngle: 0,
         endAngle: 360 * radian,
-        strokeWidth: 20
+        strokeWidth: 15
       });
 
       layer.add(circle_outer);
       layer.add(arc);
+
+      var text = new Kinetic.Text({
+        x: stage.getWidth()/2 - 40,
+        y: stage.getHeight()/2,
+        text: data_array[i].data+' :: '+data_array[i].value ,
+        fontSize: 12,
+        fontFamily: 'arial',
+        fill: 'green'
+      });
+
+      layer.add(text);
+
+      text.hide();
 
       arc.on('mouseover', function(e) {
         (new Kinetic.Tween({
@@ -151,6 +164,7 @@
           strokeWidth: 25,
           easing: Kinetic.Easings['ElasticEaseInOut']
         })).play();
+        text.show();
       });
       arc.on('mouseout', function(e) {
         (new Kinetic.Tween({
@@ -158,6 +172,7 @@
           strokeWidth: 20,
           easing: Kinetic.Easings['ElasticEaseInOut']
         })).play();
+        text.hide();
       });
 
       radius += 30;
