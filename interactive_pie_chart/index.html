@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+  <script src="../assets/js/jquery.js"></script>
+  <script src="../assets/js/kinetic.js"></script>
+  <style type="text/css">
+  body{ font-family: helvetica, arial;}
+  #kinetic_charts canvas{ left: 0; top: 0;}
+  #legends{ width: 900px; margin: 0 auto;}
+  #legends span{ height: 10px; width: 10px; margin-right: 10px; float: left;}
+  #legends div{ float: left; margin-right: 20px;}
+  </style>
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+<center><h1 style="margin-top: 100px; color: #567; font-family: 'Titillium Web', sans-serif; font-weight: 400; font-size: 30px;">Interactive Pie-Chart with kinetic JS</h1></center>
+
+<br />
+
+<div id="kinetic_charts" style="text-align: center;">
+</div>
+<div id="legends"></div>
+<script type="text/javascript">
+
+  var data_array = [
+    { data: "HTML5/CSS3", value: "30", color: "#97BE0D"},
+    { data: "Javascript", value: "30", color: "#D84F5F"},
+    { data: "Ruby on Rails", value: "30", color: "#88B8E6"},
+    { data: "Others", value: "10", color: "#D98B46"}
+  ]
+
+  function Chart(){
+    this.stage = new Kinetic.Stage({
+      container: 'kinetic_charts',
+      width: 400,
+      height: 400,
+      fill: "def"
+    });
+  }
+
+
+</script>
+
+</body>
+</html>
